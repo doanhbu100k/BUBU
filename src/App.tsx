@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 
 export default function App() {
-  const lang = navigator.language.split("-")[0];
+  const lang =
+  typeof navigator !== "undefined"
+    ? navigator.language.split("-")[0]
+    : "en";
 
   const text = {
     en: {
@@ -294,7 +297,7 @@ export default function App() {
   const addScript = document.createElement("script");
 
   addScript.src =
-    "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
 
   addScript.async = true;
 
@@ -432,22 +435,21 @@ export default function App() {
         }
 
         .header-buttons{
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
+        display:flex;
+        align-items:center;
+        gap:15px;
+        }
 
-.header-buttons .goog-te-gadget {
-  font-size:0 !important;
-}
-
-.header-buttons .goog-te-gadget select{
-  padding:10px 14px;
-  border-radius:12px;
-  border:1px solid #ddd;
-  cursor:pointer;
-  background:white;
-}
+       .header-buttons .goog-te-gadget {
+       font-size:0 !important;
+       }
+       .header-buttons .goog-te-gadget select{
+       padding:10px 14px;
+       border-radius:12px;
+       border:1px solid #ddd;
+       cursor:pointer;
+       background:white;
+       }
           display:flex;
           align-items:center;
           gap:15px;
