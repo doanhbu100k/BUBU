@@ -13,79 +13,271 @@ export default function App() {
       ? navigator.language.split("-")[0]
       : "en";
 
-  const text: any = {
-    en: {
-      begin: "Begin",
-      advertisement: "Advertisement",
-      learn: "Learn",
-      support: "Support",
-      schedule: "Schedule a call",
-      start: "Start now",
-      register: "Register",
-      title:
-        "Let the whole world know that you take business seriously.",
-      desc:
-        "Meta Verified helps you build credibility with new audiences and protect your brand.",
-    },
+// THAY TOÀN BỘ const text = { ... } CŨ
+// bằng đoạn này
 
-    vi: {
-      begin: "Bắt đầu",
-      advertisement: "Quảng cáo",
-      learn: "Tìm hiểu",
-      support: "Hỗ trợ",
-      schedule: "Đặt lịch gọi",
-      start: "Bắt đầu ngay",
-      register: "Đăng ký",
-      title:
-        "Hãy để cả thế giới biết rằng bạn nghiêm túc với doanh nghiệp của mình.",
-      desc:
-        "Meta Verified giúp bạn xây dựng uy tín và bảo vệ thương hiệu.",
-    },
+const text: any = {
+  en: {
+    begin: "Begin",
+    advertisement: "Advertisement",
+    learn: "Learn",
+    support: "Support",
+    schedule: "Schedule a call",
+    start: "Start now",
+    register: "Register",
+    title:
+      "Let the whole world know that you take business seriously.",
+    desc:
+      "Meta Verified helps you build credibility with new audiences and protect your brand.",
+  },
 
-    fr: {
-      begin: "Commencer",
-      advertisement: "Publicité",
-      learn: "Apprendre",
-      support: "Support",
-      schedule: "Planifier un appel",
-      start: "Commencer maintenant",
-      register: "S'inscrire",
-      title:
-        "Montrez au monde entier que vous prenez votre entreprise au sérieux.",
-      desc:
-        "Meta Verified vous aide à protéger votre marque.",
-    },
+  vi: {
+    begin: "Bắt đầu",
+    advertisement: "Quảng cáo",
+    learn: "Tìm hiểu",
+    support: "Hỗ trợ",
+    schedule: "Đặt lịch gọi",
+    start: "Bắt đầu ngay",
+    register: "Đăng ký",
+    title:
+      "Hãy để cả thế giới biết rằng bạn nghiêm túc với doanh nghiệp của mình.",
+    desc:
+      "Meta Verified giúp bạn xây dựng uy tín và bảo vệ thương hiệu.",
+  },
 
-    de: {
-      begin: "Start",
-      advertisement: "Werbung",
-      learn: "Lernen",
-      support: "Support",
-      schedule: "Anruf planen",
-      start: "Jetzt starten",
-      register: "Registrieren",
-      title:
-        "Zeigen Sie der Welt, dass Sie Ihr Unternehmen ernst nehmen.",
-      desc:
-        "Meta Verified hilft Ihnen beim Schutz Ihrer Marke.",
-    },
+  fr: {
+    begin: "Commencer",
+    advertisement: "Publicité",
+    learn: "Apprendre",
+    support: "Support",
+    schedule: "Planifier un appel",
+    start: "Commencer maintenant",
+    register: "S'inscrire",
+    title:
+      "Montrez au monde entier que vous prenez votre entreprise au sérieux.",
+    desc: "Meta Verified vous aide à protéger votre marque.",
+  },
 
-    es: {
-      begin: "Comenzar",
-      advertisement: "Publicidad",
-      learn: "Aprender",
-      support: "Soporte",
-      schedule: "Programar llamada",
-      start: "Comenzar ahora",
-      register: "Registrarse",
-      title:
-        "Hazle saber al mundo que tomas en serio tu negocio.",
-      desc:
-        "Meta Verified te ayuda a proteger tu marca.",
-    },
-  };
+  de: {
+    begin: "Start",
+    advertisement: "Werbung",
+    learn: "Lernen",
+    support: "Support",
+    schedule: "Anruf planen",
+    start: "Jetzt starten",
+    register: "Registrieren",
+    title:
+      "Zeigen Sie der Welt, dass Sie Ihr Unternehmen ernst nehmen.",
+    desc: "Meta Verified hilft Ihnen beim Schutz Ihrer Marke.",
+  },
 
-  const t = text[lang] || text.en;
+  es: {
+    begin: "Comenzar",
+    advertisement: "Publicidad",
+    learn: "Aprender",
+    support: "Soporte",
+    schedule: "Programar llamada",
+    start: "Comenzar ahora",
+    register: "Registrarse",
+    title:
+      "Hazle saber al mundo que tomas en serio tu negocio.",
+    desc: "Meta Verified te ayuda a proteger tu marca.",
+  },
+
+  cs: {
+    begin: "Začít",
+    advertisement: "Reklama",
+    learn: "Zjistit více",
+    support: "Podpora",
+    schedule: "Naplánovat hovor",
+    start: "Začněte nyní",
+    register: "Registrovat",
+    title: "Dejte celému světu vědět, že svůj podnik berete vážně.",
+    desc: "Meta Verified vám pomůže budovat důvěryhodnost a chránit vaši značku.",
+  },
+
+  da: {
+    begin: "Begynd",
+    advertisement: "Annonce",
+    learn: "Lær",
+    support: "Support",
+    schedule: "Planlæg et opkald",
+    start: "Start nu",
+    register: "Registrer",
+    title: "Lad hele verden vide, at du tager din virksomhed seriøst.",
+    desc: "Meta Verified hjælper dig med at beskytte dit brand.",
+  },
+
+  fi: {
+    begin: "Aloita",
+    advertisement: "Mainos",
+    learn: "Lue lisää",
+    support: "Tuki",
+    schedule: "Aikatauluta puhelu",
+    start: "Aloita nyt",
+    register: "Rekisteröidy",
+    title: "Anna koko maailman tietää, että otat yrityksesi vakavasti.",
+    desc: "Meta Verified auttaa suojaamaan brändiäsi.",
+  },
+
+  no: {
+    begin: "Start",
+    advertisement: "Annonse",
+    learn: "Lær",
+    support: "Støtte",
+    schedule: "Planlegg samtale",
+    start: "Start nå",
+    register: "Registrer",
+    title: "La hele verden vite at du tar virksomheten din seriøst.",
+    desc: "Meta Verified hjelper deg med å beskytte merkevaren din.",
+  },
+
+  sv: {
+    begin: "Börja",
+    advertisement: "Annons",
+    learn: "Lär dig",
+    support: "Support",
+    schedule: "Schemalägg samtal",
+    start: "Starta nu",
+    register: "Registrera",
+    title: "Låt hela världen veta att du tar ditt företag på allvar.",
+    desc: "Meta Verified hjälper dig att skydda ditt varumärke.",
+  },
+
+  ro: {
+    begin: "Începe",
+    advertisement: "Publicitate",
+    learn: "Învață",
+    support: "Suport",
+    schedule: "Programează apel",
+    start: "Începe acum",
+    register: "Înregistrează-te",
+    title: "Arată lumii că îți iei afacerea în serios.",
+    desc: "Meta Verified te ajută să îți protejezi brandul.",
+  },
+
+  hu: {
+    begin: "Kezdés",
+    advertisement: "Hirdetés",
+    learn: "Tudj meg többet",
+    support: "Támogatás",
+    schedule: "Hívás ütemezése",
+    start: "Kezdés most",
+    register: "Regisztráció",
+    title: "Mutasd meg a világnak, hogy komolyan veszed vállalkozásodat.",
+    desc: "A Meta Verified segít megvédeni a márkádat.",
+  },
+
+  el: {
+    begin: "Έναρξη",
+    advertisement: "Διαφήμιση",
+    learn: "Μάθετε",
+    support: "Υποστήριξη",
+    schedule: "Προγραμματισμός κλήσης",
+    start: "Ξεκινήστε τώρα",
+    register: "Εγγραφή",
+    title: "Δείξτε στον κόσμο ότι παίρνετε την επιχείρησή σας σοβαρά.",
+    desc: "Το Meta Verified βοηθά στην προστασία της επωνυμίας σας.",
+  },
+
+  he: {
+    begin: "התחל",
+    advertisement: "פרסומת",
+    learn: "למד",
+    support: "תמיכה",
+    schedule: "קבע שיחה",
+    start: "התחל עכשיו",
+    register: "הרשמה",
+    title: "תן לעולם לדעת שאתה לוקח את העסק שלך ברצינות.",
+    desc: "Meta Verified עוזר להגן על המותג שלך.",
+  },
+
+  sr: {
+    begin: "Počni",
+    advertisement: "Oglas",
+    learn: "Saznaj više",
+    support: "Podrška",
+    schedule: "Zakaži poziv",
+    start: "Počni sada",
+    register: "Registruj se",
+    title: "Neka ceo svet zna da ozbiljno shvatate svoj posao.",
+    desc: "Meta Verified pomaže u zaštiti vašeg brenda.",
+  },
+
+  hr: {
+    begin: "Počni",
+    advertisement: "Oglas",
+    learn: "Saznaj više",
+    support: "Podrška",
+    schedule: "Zakaži poziv",
+    start: "Počni sada",
+    register: "Registracija",
+    title: "Pokažite svijetu da ozbiljno shvaćate svoje poslovanje.",
+    desc: "Meta Verified pomaže zaštititi vaš brend.",
+  },
+
+  sk: {
+    begin: "Začať",
+    advertisement: "Reklama",
+    learn: "Zistiť viac",
+    support: "Podpora",
+    schedule: "Naplánovať hovor",
+    start: "Začať teraz",
+    register: "Registrovať",
+    title: "Ukážte svetu, že svoje podnikanie beriete vážne.",
+    desc: "Meta Verified pomáha chrániť vašu značku.",
+  },
+
+  sl: {
+    begin: "Začni",
+    advertisement: "Oglas",
+    learn: "Več informacij",
+    support: "Podpora",
+    schedule: "Načrtuj klic",
+    start: "Začni zdaj",
+    register: "Registracija",
+    title: "Pokažite svetu, da svoje podjetje jemljete resno.",
+    desc: "Meta Verified pomaga zaščititi vašo blagovno znamko.",
+  },
+
+  lt: {
+    begin: "Pradėti",
+    advertisement: "Reklama",
+    learn: "Sužinoti daugiau",
+    support: "Pagalba",
+    schedule: "Suplanuoti skambutį",
+    start: "Pradėti dabar",
+    register: "Registruotis",
+    title: "Parodykite pasauliui, kad rimtai žiūrite į savo verslą.",
+    desc: "Meta Verified padeda apsaugoti jūsų prekės ženklą.",
+  },
+
+  lv: {
+    begin: "Sākt",
+    advertisement: "Reklāma",
+    learn: "Uzzināt vairāk",
+    support: "Atbalsts",
+    schedule: "Ieplānot zvanu",
+    start: "Sākt tagad",
+    register: "Reģistrēties",
+    title: "Parādiet pasaulei, ka nopietni uztverat savu biznesu.",
+    desc: "Meta Verified palīdz aizsargāt jūsu zīmolu.",
+  },
+
+  et: {
+    begin: "Alusta",
+    advertisement: "Reklaam",
+    learn: "Õpi",
+    support: "Tugi",
+    schedule: "Planeeri kõne",
+    start: "Alusta kohe",
+    register: "Registreeru",
+    title: "Näidake maailmale, et võtate oma äri tõsiselt.",
+    desc: "Meta Verified aitab kaitsta teie brändi.",
+  },
+};
+
+  const t = text[lang as keyof typeof text] || text.en;
 
   useEffect(() => {
     const userLang = navigator.language || "en";
@@ -105,6 +297,7 @@ export default function App() {
           "google_translate_element"
         );
 
+        // đợi google render xong
         setTimeout(() => {
           const select = document.querySelector(
             ".goog-te-combo"
@@ -114,22 +307,26 @@ export default function App() {
             select.value = shortLang;
             select.dispatchEvent(new Event("change"));
           }
-        }, 100);
+        }, 4000);
       }
     };
 
-    const addScript = document.createElement("script");
+    const existingScript = document.getElementById(
+      "google-translate-script"
+    );
 
-    addScript.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    if (!existingScript) {
+      const script = document.createElement("script");
 
-    addScript.async = true;
+      script.id = "google-translate-script";
 
-    document.body.appendChild(addScript);
+      script.src =
+        "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
 
-    return () => {
-      document.body.removeChild(addScript);
-    };
+      script.async = true;
+
+      document.body.appendChild(script);
+    }
   }, []);
 
   const images = [
@@ -155,19 +352,17 @@ export default function App() {
           top:0 !important;
         }
 
-        .goog-te-banner-frame.skiptranslate,
-        iframe.skiptranslate,
-        .goog-tooltip,
-        .goog-tooltip:hover,
-        .goog-logo-link,
-        .goog-te-gadget span,
-        .goog-te-gadget-icon {
+        .goog-te-banner-frame.skiptranslate{
           display:none !important;
         }
 
-        .goog-text-highlight{
-          background:none !important;
-          box-shadow:none !important;
+        iframe.skiptranslate{
+          display:none !important;
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget span{
+          display:none !important;
         }
 
         .goog-te-gadget{
@@ -176,8 +371,8 @@ export default function App() {
 
         #google_translate_element{
           position:absolute;
-          top:-9999px;
           left:-9999px;
+          top:-9999px;
         }
 
         .app{
@@ -190,25 +385,10 @@ export default function App() {
           height:74px;
           background:#fff;
           border-bottom:1px solid #ddd;
-          position:sticky;
-          top:0;
-          z-index:1000;
-        }
-
-        .header-container{
-          max-width:1400px;
-          margin:auto;
-          height:100%;
           display:flex;
           align-items:center;
           justify-content:space-between;
           padding:0 40px;
-        }
-
-        .logo-nav{
-          display:flex;
-          align-items:center;
-          gap:50px;
         }
 
         .logo{
@@ -219,23 +399,17 @@ export default function App() {
 
         .nav{
           display:flex;
-          gap:35px;
+          gap:30px;
         }
 
         .nav a{
           text-decoration:none;
           color:#111827;
-          font-size:15px;
           font-weight:500;
-        }
-
-        .nav a:hover{
-          color:#1877f2;
         }
 
         .header-buttons{
           display:flex;
-          align-items:center;
           gap:15px;
         }
 
@@ -245,7 +419,6 @@ export default function App() {
           color:#1877f2;
           padding:12px 20px;
           border-radius:999px;
-          font-weight:600;
           cursor:pointer;
         }
 
@@ -255,7 +428,6 @@ export default function App() {
           color:#fff;
           padding:12px 24px;
           border-radius:14px;
-          font-weight:600;
           cursor:pointer;
         }
 
@@ -265,13 +437,11 @@ export default function App() {
           color:#fff;
           text-align:center;
           padding:16px;
-          font-size:15px;
         }
 
         .hero{
           max-width:1400px;
           margin:auto;
-          min-height:calc(100vh - 120px);
           display:flex;
           align-items:center;
           justify-content:space-between;
@@ -298,9 +468,7 @@ export default function App() {
 
         .hero-title{
           font-size:72px;
-          line-height:1.05;
-          font-weight:600;
-          color:#111827;
+          line-height:1.1;
           margin-bottom:30px;
         }
 
@@ -318,31 +486,13 @@ export default function App() {
           padding:18px 38px;
           border-radius:999px;
           font-size:18px;
-          font-weight:600;
           cursor:pointer;
-        }
-
-        .small-text{
-          margin-top:35px;
-          font-size:14px;
-          line-height:1.9;
-          color:#6b7280;
-        }
-
-        .small-text span{
-          color:#1877f2;
-          cursor:pointer;
-        }
-
-        .hero-right{
-          position:relative;
         }
 
         .phone-grid{
           display:grid;
           grid-template-columns:repeat(2, 280px);
           gap:24px;
-          transform:rotate(-6deg);
         }
 
         .card{
@@ -360,108 +510,43 @@ export default function App() {
           object-fit:cover;
         }
 
-        .offset-top{
-          margin-top:60px;
-        }
-
-        .offset-bottom{
-          margin-top:-60px;
-        }
-
         @media(max-width:900px){
-          .nav{
-            display:none;
-          }
-
           .hero{
             flex-direction:column;
             text-align:center;
-          }
-
-          .hero-title{
-            font-size:50px;
-          }
-
-          .phone-grid{
-            grid-template-columns:1fr 1fr;
-            transform:none;
-          }
-
-          .card{
-            width:220px;
-            height:440px;
-          }
-        }
-
-        @media(max-width:600px){
-          .header-container{
-            padding:0 20px;
-          }
-
-          .call-btn{
-            display:none;
-          }
-
-          .hero{
-            padding:60px 20px;
-          }
-
-          .hero-title{
-            font-size:40px;
           }
 
           .phone-grid{
             grid-template-columns:1fr;
           }
 
-          .card{
-            width:260px;
-            height:480px;
-          }
-
-          .offset-top,
-          .offset-bottom{
-            margin-top:0;
+          .hero-title{
+            font-size:42px;
           }
         }
       `}</style>
 
+      <div id="google_translate_element"></div>
+
       <div className="app">
         <header className="header">
-          <div className="header-container">
-            <div className="logo-nav">
-              <div className="logo">Meta</div>
+          <div className="logo">Meta</div>
 
-              <nav className="nav">
-                <a href="#">{t.begin}</a>
-                <a href="#">{t.advertisement}</a>
-                <a href="#">{t.learn}</a>
-                <a href="#">{t.support}</a>
-              </nav>
-            </div>
+          <nav className="nav">
+            <a href="#">{t.begin}</a>
+            <a href="#">{t.advertisement}</a>
+            <a href="#">{t.learn}</a>
+            <a href="#">{t.support}</a>
+          </nav>
 
-            <div className="header-buttons">
-              <div
-                id="google_translate_element"
-                style={{ display: "none" }}
-              />
+          <div className="header-buttons">
+            <button className="call-btn">
+              {t.schedule}
+            </button>
 
-              <button className="call-btn">
-                {t.schedule}
-              </button>
-
-              <button
-                className="start-btn"
-                onClick={() =>
-                  window.open(
-                    "https://example.com",
-                    "_blank"
-                  )
-                }
-              >
-                {t.start}
-              </button>
-            </div>
+            <button className="start-btn">
+              {t.start}
+            </button>
           </div>
         </header>
 
@@ -480,35 +565,14 @@ export default function App() {
             <button className="register-btn">
               {t.register}
             </button>
-
-            <div className="small-text">
-              To register for a verified Meta account for businesses,
-              you must log in to your work account.
-              <br />
-              <br />
-              <span>Instagram</span> or{" "}
-              <span>Business Page</span>
-            </div>
           </div>
 
-          <div className="hero-right">
-            <div className="phone-grid">
-              <div className="card">
-                <img src={images[0]} alt="" />
+          <div className="phone-grid">
+            {images.map((img, index) => (
+              <div className="card" key={index}>
+                <img src={img} alt="" />
               </div>
-
-              <div className="card offset-top">
-                <img src={images[1]} alt="" />
-              </div>
-
-              <div className="card offset-bottom">
-                <img src={images[2]} alt="" />
-              </div>
-
-              <div className="card">
-                <img src={images[3]} alt="" />
-              </div>
-            </div>
+            ))}
           </div>
         </section>
       </div>
