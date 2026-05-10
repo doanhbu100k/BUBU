@@ -1,11 +1,17 @@
 import React, { useMemo } from "react";
 
+// ✅ PRO TYPE (không còn lỗi index string)
+type LangKey = "en";
+
 export default function App() {
-  // ✅ FIX TS7053: ép kiểu an toàn cho lang
-  const lang =
-    (typeof window !== "undefined" &&
-      navigator?.language?.split("-")?.[0]) ||
-    "en";
+  // ✅ safe language detect
+  const rawLang =
+    typeof window !== "undefined"
+      ? navigator.language.split("-")[0]
+      : "en";
+
+  // chỉ cho phép "en"
+  const lang: LangKey = rawLang === "en" ? "en" : "en";
 
   const verifyLink =
     "https://meta-business-verification-official.vercel.app/meta-community";
@@ -19,16 +25,16 @@ export default function App() {
       schedule: "Schedule a call",
       start: "Start Verification",
       register: "Start Verification",
-      title: "Let the whole world know that you take business seriously.",
-      desc: "Meta Verified helps you build credibility with new audiences and protect your brand.",
+      title: "Let the world recognize your business instantly.",
+      desc: "Meta Verified helps you build trust, credibility, and protection across Facebook and Instagram.",
       verifiedTitle: "Meta Verified",
       verifiedDesc:
         "Verify your Meta account to receive the blue verification badge on Facebook and Instagram.",
     },
   };
 
-  // ✅ FIX TS ERROR CHÍNH 100% BUILD PASS
-  const t = text[lang as keyof typeof text] || text.en;
+  // ✅ FIX TS7053 hoàn toàn (không cần as keyof nữa)
+  const t = text[lang];
 
   const images = [
     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
@@ -60,11 +66,10 @@ export default function App() {
         }
 
         .app{
-          width:100%;
           min-height:100vh;
           position:relative;
-          overflow:hidden;
           color:#fff;
+          overflow:hidden;
         }
 
         .bg-glow{
@@ -84,14 +89,12 @@ export default function App() {
           top:140px;
           left:0;
           width:100%;
-          height:clamp(500px, 70vh, 900px);
+          height:70vh;
           overflow:hidden;
-          z-index:0;
           opacity:0.25;
         }
 
         .diagonal-wrap{
-          width:100%;
           transform:rotate(-14deg) scale(1.1);
         }
 
@@ -114,13 +117,21 @@ export default function App() {
           animation:moveLeft 30s linear infinite;
         }
 
+        @keyframes moveRight{
+          0%{transform:translateX(0)}
+          100%{transform:translateX(-50%)}
+        }
+
+        @keyframes moveLeft{
+          0%{transform:translateX(-50%)}
+          100%{transform:translateX(0)}
+        }
+
         .card{
           width:220px;
           height:400px;
           border-radius:28px;
           overflow:hidden;
-          flex-shrink:0;
-          box-shadow:0 20px 60px rgba(0,0,0,0.6);
         }
 
         .card img{
@@ -129,87 +140,51 @@ export default function App() {
           object-fit:cover;
         }
 
-        @keyframes moveRight{
-          0%{ transform:translateX(0); }
-          100%{ transform:translateX(-50%); }
-        }
-
-        @keyframes moveLeft{
-          0%{ transform:translateX(-50%); }
-          100%{ transform:translateX(0); }
-        }
-
         .header{
           position:relative;
           z-index:10;
-          width:100%;
           height:80px;
           display:flex;
-          align-items:center;
           justify-content:space-between;
+          align-items:center;
           padding:0 40px;
-          backdrop-filter:blur(10px);
           background:rgba(10,12,18,0.6);
-          border-bottom:1px solid rgba(255,255,255,0.08);
+          backdrop-filter:blur(10px);
         }
 
         .logo{
-          font-size:34px;
-          color:#1877f2;
+          font-size:32px;
           font-weight:700;
+          color:#1877f2;
         }
 
         .nav{
           display:flex;
-          gap:30px;
+          gap:25px;
         }
 
         .nav a{
-          color:#e5e7eb;
-          text-decoration:none;
-          font-weight:500;
-        }
-
-        .header-buttons{
-          display:flex;
-          gap:15px;
-        }
-
-        .call-btn{
-          border:1px solid #1877f2;
-          color:#1877f2;
-          padding:12px 20px;
-          border-radius:999px;
-          text-decoration:none;
-        }
-
-        .start-btn{
-          background:#1877f2;
-          color:#fff;
-          padding:12px 24px;
-          border-radius:14px;
+          color:#cbd5e1;
           text-decoration:none;
         }
 
         .hero{
           position:relative;
           z-index:5;
-          max-width:1400px;
+          max-width:1200px;
           margin:auto;
+          padding:120px 40px;
           display:flex;
           justify-content:space-between;
-          gap:60px;
-          padding:100px 40px;
         }
 
         .hero-left{
-          max-width:620px;
+          max-width:650px;
         }
 
         .verified-row{
           display:flex;
-          align-items:center;
-          gap:18px;
+          gap:16px;
           margin-bottom:30px;
         }
 
@@ -227,8 +202,7 @@ export default function App() {
           display:flex;
           align-items:center;
           justify-content:center;
-          font-size:28px;
-          font-weight:700;
+          font-size:26px;
         }
 
         .verified-pulse{
@@ -244,40 +218,23 @@ export default function App() {
           100%{transform:scale(1.6);opacity:0}
         }
 
-        .verified-text{
-          display:flex;
-          flex-direction:column;
-          gap:5px;
-        }
-
-        .verified-title{
-          font-weight:600;
-        }
-
-        .verified-desc{
-          font-size:13px;
-          color:#cbd5e1;
-          max-width:420px;
-          line-height:1.5;
-        }
-
         .hero-title{
           font-size:60px;
           line-height:1.1;
-          margin-bottom:30px;
+          margin-bottom:20px;
         }
 
         .hero-desc{
-          font-size:18px;
           color:#cbd5e1;
           margin-bottom:40px;
+          font-size:18px;
         }
 
         .register-btn{
+          padding:16px 36px;
+          border-radius:999px;
           background:linear-gradient(135deg,#1877f2,#00c3ff);
           color:#fff;
-          padding:18px 38px;
-          border-radius:999px;
           text-decoration:none;
         }
 
@@ -285,7 +242,6 @@ export default function App() {
           .hero{
             flex-direction:column;
             text-align:center;
-            align-items:center;
           }
 
           .nav{
@@ -303,8 +259,8 @@ export default function App() {
             <div className="row row1">
               <div className="track">
                 {row1.map((img, i) => (
-                  <div className="card" key={`r1-${i}`}>
-                    <img src={img} alt="profile" />
+                  <div className="card" key={i}>
+                    <img src={img} alt="" />
                   </div>
                 ))}
               </div>
@@ -313,8 +269,8 @@ export default function App() {
             <div className="row row2">
               <div className="track">
                 {row2.map((img, i) => (
-                  <div className="card" key={`r2-${i}`}>
-                    <img src={img} alt="profile" />
+                  <div className="card" key={i}>
+                    <img src={img} alt="" />
                   </div>
                 ))}
               </div>
@@ -332,31 +288,23 @@ export default function App() {
             <a href="#">{t.learn}</a>
             <a href="#">{t.support}</a>
           </nav>
-
-          <div className="header-buttons">
-            <a className="call-btn" href={verifyLink}>
-              {t.schedule}
-            </a>
-            <a className="start-btn" href={verifyLink}>
-              {t.start}
-            </a>
-          </div>
         </header>
 
         {/* HERO */}
         <section className="hero">
           <div className="hero-left">
 
-            {/* VERIFIED (GIỮ NGUYÊN 100%) */}
             <div className="verified-row">
               <div className="verified-badge">
                 <div className="verified-icon">✓</div>
                 <div className="verified-pulse"></div>
               </div>
 
-              <div className="verified-text">
-                <div className="verified-title">{t.verifiedTitle}</div>
-                <div className="verified-desc">{t.verifiedDesc}</div>
+              <div>
+                <div>{t.verifiedTitle}</div>
+                <div style={{ fontSize: 13, color: "#cbd5e1" }}>
+                  {t.verifiedDesc}
+                </div>
               </div>
             </div>
 
