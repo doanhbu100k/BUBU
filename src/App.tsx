@@ -263,10 +263,15 @@ export default function App() {
 
   const unsupported = !text[lang];
   useEffect(() => {
-    const userLang = navigator.language || "en";
-    const shortLang = userLang.split("-")[0];
+  const userLang = navigator.language || "en";
+  const shortLang = userLang.split("-")[0];
 
-    window.googleTranslateElementInit = () => {
+  window.googleTranslateElementInit = () => {
+    if (
+      window.google &&
+      window.google.translate &&
+      window.google.translate.TranslateElement
+    ) {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "en",
@@ -283,17 +288,22 @@ export default function App() {
           select.dispatchEvent(new Event("change"));
         }
       }, 100);
-    };
+    }
+  };
 
-    const addScript = document.createElement("script");
+  const addScript = document.createElement("script");
 
-    addScript.src =
-      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  addScript.src =
+    "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
 
-    addScript.async = true;
+  addScript.async = true;
 
-    document.body.appendChild(addScript);
-  }, []);
+  document.body.appendChild(addScript);
+
+  return () => {
+    document.body.removeChild(addScript);
+  };
+}, []);
   const images = [
     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1200&auto=format&fit=crop",
@@ -422,17 +432,22 @@ export default function App() {
         }
 
         .header-buttons{
-          .goog-te-gadget {
-            font-size:0 !important;
-          }
-          
-          .goog-te-gadget select{
-            padding:10px 14px;
-            border-radius:12px;
-            border:1px solid #ddd;
-            cursor:pointer;
-            background:white;
-          }
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.header-buttons .goog-te-gadget {
+  font-size:0 !important;
+}
+
+.header-buttons .goog-te-gadget select{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  cursor:pointer;
+  background:white;
+}
           display:flex;
           align-items:center;
           gap:15px;
