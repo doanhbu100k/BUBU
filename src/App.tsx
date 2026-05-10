@@ -1,5 +1,14 @@
 import React, { useEffect } from "react";
 
+declare global {
+  interface Window {
+    google: any;
+    googleTranslateElementInit: any;
+  }
+}
+
+export default function App() {
+
 export default function App() {
   const lang =
   typeof navigator !== "undefined"
@@ -266,6 +275,7 @@ export default function App() {
 
   const unsupported = !text[lang];
   useEffect(() => {
+}
   const userLang = navigator.language || "en";
   const shortLang = userLang.split("-")[0];
 
@@ -435,27 +445,24 @@ export default function App() {
         }
 
         .header-buttons{
-        display:flex;
-        align-items:center;
-        gap:15px;
-        }
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
 
-       .header-buttons .goog-te-gadget {
-       font-size:0 !important;
-       }
-       .header-buttons .goog-te-gadget select{
-       padding:10px 14px;
-       border-radius:12px;
-       border:1px solid #ddd;
-       cursor:pointer;
-       background:white;
-       }
-          display:flex;
-          align-items:center;
-          gap:15px;
-        }
+.header-buttons .goog-te-gadget {
+  font-size:0 !important;
+}
 
-        .call-btn{
+.header-buttons .goog-te-gadget select{
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  cursor:pointer;
+  background:white;
+}
+          
+.call-btn{
           border:1px solid #1877f2;
           background:#fff;
           color:#1877f2;
